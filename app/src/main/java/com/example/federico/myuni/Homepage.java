@@ -24,6 +24,7 @@ public class Homepage extends AppCompatActivity {
         ImageView imageMale=(ImageView) findViewById(R.id.imageView);
         ImageView imageFemale=(ImageView) findViewById(R.id.imageView2);
 
+        //ciclo per vedere gli avatar
         if (prova==1){
             imageFemale.setVisibility(View.VISIBLE);
             imageMale.setVisibility(View.INVISIBLE);
@@ -32,6 +33,10 @@ public class Homepage extends AppCompatActivity {
             imageFemale.setVisibility(View.INVISIBLE);
             imageMale.setVisibility(View.VISIBLE);
         }
+
+
+
+
         txtCognome.setText("Cognome");
         txtNome.setText("Nome");
         btnSchedule.setOnClickListener(new View.OnClickListener() {
