@@ -7,7 +7,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:background="#0f2fff"
+    android:background="#dadadb"
     tools:context="com.example.federico.myuni.Homepage">
 
 
@@ -18,18 +18,18 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="34dp"
-        android:background="#0f2fff"
+        android:background="#dadadb"
         android:src="@mipmap/g" />
 
     <ImageButton
         android:id="@+id/imageButton2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="#dadadb"
+        android:src="@mipmap/o"
+        android:layout_above="@+id/textView"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_centerVertical="true"
-        android:background="#0f2fff"
-        android:src="@mipmap/o" />
+        android:layout_alignParentStart="true" />
 
     <ImageButton
         android:id="@+id/imageButton3"
@@ -39,47 +39,34 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentStart="false"
         android:layout_centerVertical="true"
-        android:background="#0f2fff"
+        android:background="#dadadb"
         android:src="@mipmap/v" />
 
-    <TextView
-        android:id="@+id/textView2"
+    <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/imageButton3"
+        android:id="@+id/imageButton4"
+        android:layout_alignBottom="@+id/imageButton3"
         android:layout_centerHorizontal="true"
-        android:text="Large Text"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        android:src="@mipmap/male"/>
 
     <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Large Text"
         android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/imageButton3"
+        android:layout_below="@+id/imageButton4"
         android:layout_centerHorizontal="true"
+        android:layout_marginTop="56dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Large Text"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/imageView2"
-        android:layout_marginLeft="25dp"
-        android:layout_marginStart="25dp"
-        android:layout_toEndOf="@+id/imageButton2"
-        android:layout_toRightOf="@+id/imageButton2"
-        android:src="@mipmap/male"
-        android:background="#0f2fff"/>
-
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/imageView"
-        android:layout_alignStart="@+id/imageView"
-        android:layout_alignTop="@+id/textView2"
-        android:src="@mipmap/female"
-        android:background="#0f2fff"/>
+        android:id="@+id/textView2"
+        android:layout_below="@+id/textView"
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>
