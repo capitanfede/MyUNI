@@ -11,9 +11,29 @@
 
     <CalendarView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="425dp"
         android:id="@+id/calendar1"
-        android:layout_margin="10dp">
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp">
 
     </CalendarView>
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageButton5"
+        android:layout_below="@+id/calendar1"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New Button"
+        android:id="@+id/button"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:src="@mipmap/>
 </RelativeLayout>
