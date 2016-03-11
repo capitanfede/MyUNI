@@ -40,22 +40,31 @@ public class FirstRegistration extends AppCompatActivity {
         okButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                nomeS = nome.getText().toString();
-                cognomeS = cognome.getText().toString();
-                universitaS = universita.getText().toString();
-                cfuI = Integer.parseInt(cfu.getText().toString());
 
-                editor.putString("nome", nomeS);
-                editor.putString("cognome", cognomeS);
-                editor.putString("univesita", universitaS);
-                editor.putInt("cfu", cfuI);
-                editor.commit();
+                setSharedPreferences();
 
                 Intent i = new Intent(FirstRegistration.this, Homepage.class);
                 startActivity(i);
                 finish();
+
             }
         });
+
+        }
+
+        void setSharedPreferences(){
+
+            nomeS = nome.getText().toString();
+            cognomeS = cognome.getText().toString();
+            universitaS = universita.getText().toString();
+            cfuI = Integer.parseInt(cfu.getText().toString());
+
+            editor.putString("nome", nomeS);
+            editor.putString("cognome", cognomeS);
+            editor.putString("univesita", universitaS);
+            editor.putInt("cfu", cfuI);
+            editor.commit();
+
 
         }
 

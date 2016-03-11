@@ -72,13 +72,12 @@ public class Homepage extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                //Bottone utente
-
                 editor.clear();
                 editor.commit();
                 Intent i = new Intent(Homepage.this,FirstRegistration.class);
                 startActivity(i);
                 finish();
+
             }
         });
     }
