@@ -28,9 +28,10 @@ public class Homepage extends AppCompatActivity {
         ImageButton btnSchedule= (ImageButton) findViewById(R.id.imageButton);
         ImageButton btnGraphics= (ImageButton) findViewById(R.id.imageButton2);
         ImageButton btnExam= (ImageButton) findViewById(R.id.imageButton3);
+        ImageButton btnUser = (ImageButton) findViewById(R.id.imageButton4);
         TextView txtNome= (TextView) findViewById(R.id.textView);
         TextView txtCognome=(TextView) findViewById(R.id.textView2);
-        ImageButton imageMale=(ImageButton) findViewById(R.id.imageButton3);
+        //ImageButton imageMale=(ImageButton) findViewById(R.id.imageButton3);
 
 
         prefs = getSharedPreferences(MY_PREFERENCES, Context.MODE_PRIVATE);
@@ -62,8 +63,22 @@ public class Homepage extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                //Bottono esami
+                //Bottone esami
 
+            }
+        });
+
+        btnUser.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                //Bottone utente
+
+                editor.clear();
+                editor.commit();
+                Intent i = new Intent(Homepage.this,FirstRegistration.class);
+                startActivity(i);
+                finish();
             }
         });
     }

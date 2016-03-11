@@ -1,6 +1,7 @@
 package com.example.federico.myuni;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -49,8 +50,10 @@ public class FirstRegistration extends AppCompatActivity {
                 editor.putString("univesita", universitaS);
                 editor.putInt("cfu", cfuI);
                 editor.commit();
-                
 
+                Intent i = new Intent(FirstRegistration.this, Homepage.class);
+                startActivity(i);
+                finish();
             }
         });
 
