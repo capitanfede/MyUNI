@@ -3,6 +3,7 @@ package com.example.federico.myuni;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -25,10 +26,10 @@ public class Homepage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_homepage);
 
-        ImageButton btnSchedule= (ImageButton) findViewById(R.id.imageButton);
-        ImageButton btnGraphics= (ImageButton) findViewById(R.id.imageButton2);
-        ImageButton btnExam= (ImageButton) findViewById(R.id.imageButton3);
-        ImageButton btnUser = (ImageButton) findViewById(R.id.imageButton4);
+        FloatingActionButton btnSchedule= (FloatingActionButton) findViewById(R.id.imageButton2);
+        FloatingActionButton btnGraphics= (FloatingActionButton) findViewById(R.id.imageButton);
+        FloatingActionButton btnExam= (FloatingActionButton) findViewById(R.id.imageButton3);
+        FloatingActionButton btnUser = (FloatingActionButton) findViewById(R.id.imageButton4);
         TextView txtNome= (TextView) findViewById(R.id.textView);
         TextView txtCognome=(TextView) findViewById(R.id.textView2);
         //ImageButton imageMale=(ImageButton) findViewById(R.id.imageButton3);

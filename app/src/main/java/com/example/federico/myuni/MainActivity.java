@@ -31,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
             startActivity(i);
             finish();
         }
+
         else{
             Intent i = new Intent(MainActivity.this,Homepage.class);
             startActivity(i);

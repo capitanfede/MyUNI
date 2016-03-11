@@ -3,12 +3,14 @@ package com.example.federico.myuni;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class FirstRegistration extends AppCompatActivity {
 
@@ -35,17 +37,23 @@ public class FirstRegistration extends AppCompatActivity {
         prefs = getSharedPreferences(MY_PREFERENCES, Context.MODE_PRIVATE);
         editor = prefs.edit();
 
-        Button okButton = (Button) findViewById(R.id.okButton);
+        FloatingActionButton okButton = (FloatingActionButton) findViewById(R.id.okButton);
 
         okButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(cfu.getText().toString().equals("") || nome.getText().toString().equals("")
+                        || cognome.getText().toString().equals("") || universita.getText().toString().equals("")) {
 
-                setSharedPreferences();
+                    Toast.makeText(getApplicationContext(), "Completa tutti i campi", Toast.LENGTH_SHORT).show();
+                }
 
-                Intent i = new Intent(FirstRegistration.this, Homepage.class);
-                startActivity(i);
-                finish();
+                else{
+                    setSharedPreferences();
+                    Intent i = new Intent(FirstRegistration.this, Homepage.class);
+                    startActivity(i);
+                    finish();
+                }
 
             }
         });
