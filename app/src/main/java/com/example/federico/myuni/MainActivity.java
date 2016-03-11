@@ -26,8 +26,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     protected void checkFirstAccess(SharedPreferences prefs){
-        if(prefs.getString("name","nulla").toString() == "nulla"){
+        if(prefs.getString("nome","nulla").toString() == "nulla"){
             Intent i = new Intent(MainActivity.this, FirstRegistration.class);
+            startActivity(i);
+            finish();
+        }
+        else{
+            Intent i = new Intent(MainActivity.this,Homepage.class);
             startActivity(i);
             finish();
         }
