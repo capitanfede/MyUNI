@@ -15,11 +15,15 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Calendar extends AppCompatActivity implements View.OnClickListener{
-    public Date dataSelezionata;
+
     public int giorno;
     public int mese;
     public int anno;
-    Bundle bundleDate,bundleMonth,bundleYear;
+    public String nameExam;
+
+    Bundle bundleDate;
+    public Bundle bundleExam;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,6 +34,7 @@ public class Calendar extends AppCompatActivity implements View.OnClickListener{
 
         btnPlus.setOnClickListener(this);
 
+
         calendar.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
             public void onSelectedDayChange(CalendarView view, int year, int month, int dayOfMonth) {
@@ -39,17 +44,15 @@ public class Calendar extends AppCompatActivity implements View.OnClickListener{
                 mese = month + 1;
                 anno = year;
 
-                bundleDate= new Bundle();
-                bundleMonth= new Bundle();
-                bundleYear= new Bundle();
 
-                bundleDate.putInt("data", giorno);
-                bundleMonth.putInt("month",mese);
-                bundleYear.putInt("year",anno);
 
                 Toast.makeText(getApplicationContext(), "Hai selezionato la data " + giorno + "/" + mese + "/" + anno, Toast.LENGTH_SHORT).show();
 
             }
+
+
+
+
         });
 
 
@@ -58,45 +61,37 @@ public class Calendar extends AppCompatActivity implements View.OnClickListener{
     @Override
     public void onClick(View v) {
 
+        //GESTIONE POPUP
+
         switch (v.getId()){
             case R.id.plusButton:
                 Dialog1 myDialog=new Dialog1();
                 bundleDate= new Bundle();
-                /*bundleMonth= new Bundle();
-                bundleYear= new Bundle();*/
 
                 bundleDate.putInt("data", giorno);
-
                 bundleDate.putInt("month",mese);
                 bundleDate.putInt("year",anno);
                 myDialog.setArguments(bundleDate);
+
                 //myDialog.setArguments(bundleMonth);
                 //myDialog.setArguments(bundleYear);
                 myDialog.show(this.getFragmentManager(), "INSERT");
 
-                //Toast.makeText();
                 break;
         }
     }
 
-    public int getDay (){
-        Log.e("DATA LETTA n n n n n", "" +giorno);
-        return giorno;
 
+    public String receptionExam(){ //NOME DEL ESAME
+
+
+
+
+
+        return nameExam;
     }
 
-    public int getYear (){
 
-
-
-        return mese;
-    }
-    public int getMonth (){
-
-
-
-        return anno;
-    }
 }
 
 

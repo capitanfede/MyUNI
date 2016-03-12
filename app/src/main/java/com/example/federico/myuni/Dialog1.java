@@ -1,8 +1,18 @@
 package com.example.federico.myuni;
 
+
+
+/*
+SALVARE TUTTI I DATI INSERITI NEL DIALOG NEL DATABASE COSI POI NEL CALENDAR.JAVA SI VANNO
+A PRENDERE I DATI DAL DATABASE E SCRITTI NEL FRAGMENT.
+*/
+
+
+
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.DialogFragment;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Layout;
@@ -20,9 +30,11 @@ public class Dialog1 extends DialogFragment {
     TextView txtInsertDate;
     TextView txtNameExam;
     TextView txtDate;
+    TextView txtHour;
     public  String esame;
     public  int day,month,year;
     public String day2;
+    public Intent intent;
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
@@ -33,30 +45,23 @@ public class Dialog1 extends DialogFragment {
         txtInsertExam=(EditText) view.findViewById(R.id.insertText);
         txtNameExam= (TextView) view.findViewById(R.id.nomeText);
         txtDate= (TextView) view.findViewById(R.id.dateText);
+        txtHour=(TextView) view.findViewById(R.id.hourText);
+        intent=new Intent(getActivity(), Calendar.class);
 
 
         txtInsertDate=(TextView) view.findViewById(R.id.insertDateText);
-        Calendar calendarObject = new Calendar();
 
         Bundle bundle =getArguments();
         day = bundle.getInt("data");
-
-        /*day = calendarObject.getDay();
-
-
-        month = calendarObject.getMonth();
-        year= calendarObject.getYear();*/
+        month = bundle.getInt("month");
+        year = bundle.getInt("year");
 
 
-        Log.e("DATA LETTA", "" +day);
-
-        //Toast.makeText(getApplicationContext(), "Data:"+day+"/"+month+"/"+year, Toast.LENGTH_LONG).show();
-
-        //txtInsertDate.setText(day+"/"+month+"/"+year);
-        txtInsertDate.setText("Ciao: " + day);
+        txtInsertDate.setText(day+"/"+month+"/"+year);
 
 
-        //insertEvent();
+
+        insertEvent();
 
 
         AlertDialog.Builder builder=new AlertDialog.Builder(getActivity());
@@ -65,11 +70,14 @@ public class Dialog1 extends DialogFragment {
 
     }
 
-   /* public String insertEvent(){
-        String nome = txtInsertExam.getText().toString();
+    public String insertEvent(){
 
+        String nome = txtInsertExam.getText().toString(); //salva il nome dell esame inserito nell editText
+        
         return nome;
-    }*/
+    }
+
+
 
 
 }

@@ -7,6 +7,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="#c5cae9"
     tools:context="com.example.federico.myuni.Dialog">
 
     <TextView
@@ -19,7 +20,7 @@
         android:layout_alignParentStart="true" />
 
     <EditText
-        android:layout_width="match_parent"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:id="@+id/insertText"
         android:layout_alignParentTop="true"
@@ -37,12 +38,31 @@
         android:layout_alignParentStart="true" />
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Medium Text"
         android:id="@+id/insertDateText"
         android:layout_alignTop="@+id/dateText"
         android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Ora"
+        android:id="@+id/hourText"
+        android:layout_marginBottom="92dp"
+        android:layout_alignBottom="@+id/timePicker"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TimePicker
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/timePicker"
+        android:layout_below="@+id/dateText"
+        android:layout_alignLeft="@+id/insertDateText"
+        android:layout_alignStart="@+id/insertDateText" />
 
 </RelativeLayout>
