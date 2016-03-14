@@ -45,15 +45,13 @@ public class Calendar extends AppCompatActivity implements View.OnClickListener{
                 anno = year;
 
 
-
                 Toast.makeText(getApplicationContext(), "Hai selezionato la data " + giorno + "/" + mese + "/" + anno, Toast.LENGTH_SHORT).show();
 
             }
 
 
-
-
         });
+
 
 
     }
