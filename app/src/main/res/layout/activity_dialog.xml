@@ -16,6 +16,7 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Nome"
         android:id="@+id/nomeText"
+        android:layout_alignBottom="@+id/insertText"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
@@ -24,7 +25,8 @@
         android:layout_height="wrap_content"
         android:id="@+id/insertText"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignLeft="@+id/insertDateText"
+        android:layout_alignStart="@+id/insertDateText" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -64,5 +66,15 @@
         android:layout_below="@+id/dateText"
         android:layout_alignLeft="@+id/insertDateText"
         android:layout_alignStart="@+id/insertDateText" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Salva"
+        android:id="@+id/saveButton"
+        android:layout_below="@+id/timePicker"
+        android:layout_alignLeft="@+id/timePicker"
+        android:layout_alignStart="@+id/timePicker" />
 
 </RelativeLayout>

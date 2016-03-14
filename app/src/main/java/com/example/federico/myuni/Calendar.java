@@ -1,7 +1,9 @@
 package com.example.federico.myuni;
 
 import android.app.AlertDialog;
+import android.content.Intent;
 import android.media.Image;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -20,6 +22,8 @@ public class Calendar extends AppCompatActivity implements View.OnClickListener{
     public int mese;
     public int anno;
     public String nameExam;
+    public int i=1;
+
 
     Bundle bundleDate;
     public Bundle bundleExam;
@@ -30,7 +34,9 @@ public class Calendar extends AppCompatActivity implements View.OnClickListener{
         setContentView(R.layout.activity_calendar);
 
         final CalendarView calendar= (CalendarView) findViewById(R.id.calendar1);
-        ImageButton btnPlus =(ImageButton)findViewById(R.id.plusButton);
+        FloatingActionButton btnPlus =(FloatingActionButton)findViewById(R.id.imageButtonPlus);
+
+       ;
 
         btnPlus.setOnClickListener(this);
 
@@ -52,6 +58,8 @@ public class Calendar extends AppCompatActivity implements View.OnClickListener{
 
         });
 
+        Toast.makeText(getApplicationContext(),"sono qua",Toast.LENGTH_LONG);
+        receptionExam();
 
 
     }
@@ -62,7 +70,7 @@ public class Calendar extends AppCompatActivity implements View.OnClickListener{
         //GESTIONE POPUP
 
         switch (v.getId()){
-            case R.id.plusButton:
+            case R.id.imageButtonPlus:
                 Dialog1 myDialog=new Dialog1();
                 bundleDate= new Bundle();
 
@@ -70,6 +78,7 @@ public class Calendar extends AppCompatActivity implements View.OnClickListener{
                 bundleDate.putInt("month",mese);
                 bundleDate.putInt("year",anno);
                 myDialog.setArguments(bundleDate);
+                i=0;
 
                 //myDialog.setArguments(bundleMonth);
                 //myDialog.setArguments(bundleYear);
@@ -83,7 +92,10 @@ public class Calendar extends AppCompatActivity implements View.OnClickListener{
     public String receptionExam(){ //NOME DEL ESAME
 
 
-
+        Intent i=getIntent();
+        nameExam=i.getStringExtra("esame");
+        Log.e("ESAME:",nameExam);
+        Toast.makeText(getApplicationContext(),"ESAME:"+nameExam,Toast.LENGTH_LONG);
 
 
         return nameExam;

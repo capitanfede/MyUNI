@@ -19,6 +19,7 @@ import android.text.Layout;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -31,10 +32,11 @@ public class Dialog1 extends DialogFragment {
     TextView txtNameExam;
     TextView txtDate;
     TextView txtHour;
+    Button btnSalva;
+    Intent intentCalendar;
+
     public  String esame;
     public  int day,month,year;
-    public String day2;
-    public Intent intent;
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
@@ -46,10 +48,11 @@ public class Dialog1 extends DialogFragment {
         txtNameExam= (TextView) view.findViewById(R.id.nomeText);
         txtDate= (TextView) view.findViewById(R.id.dateText);
         txtHour=(TextView) view.findViewById(R.id.hourText);
-        intent=new Intent(getActivity(), Calendar.class);
-
-
+        intentCalendar=new Intent(getActivity(), Calendar.class);
         txtInsertDate=(TextView) view.findViewById(R.id.insertDateText);
+        btnSalva=(Button) view.findViewById(R.id.saveButton);
+
+
 
         Bundle bundle =getArguments();
         day = bundle.getInt("data");
@@ -60,8 +63,15 @@ public class Dialog1 extends DialogFragment {
         txtInsertDate.setText(day+"/"+month+"/"+year);
 
 
+        btnSalva.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                insertEvent();
+                startActivity(intentCalendar);
 
-        insertEvent();
+            }
+        });
+
 
 
         AlertDialog.Builder builder=new AlertDialog.Builder(getActivity());
@@ -73,7 +83,7 @@ public class Dialog1 extends DialogFragment {
     public String insertEvent(){
 
         String nome = txtInsertExam.getText().toString(); //salva il nome dell esame inserito nell editText
-        
+        intentCalendar.putExtra("esame",nome);
         return nome;
     }
 
