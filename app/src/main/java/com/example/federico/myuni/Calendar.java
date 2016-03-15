@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.CalendarView;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -21,8 +22,9 @@ public class Calendar extends AppCompatActivity implements View.OnClickListener{
     public int giorno;
     public int mese;
     public int anno;
-    public String nameExam;
+    public String nameExam,ora,minuto,giornoRicevuto,meseRicevuto,annoRicevuto;
     public int i=1;
+    Button prova; // da cancellare
 
 
     Bundle bundleDate;
@@ -35,11 +37,12 @@ public class Calendar extends AppCompatActivity implements View.OnClickListener{
 
         final CalendarView calendar= (CalendarView) findViewById(R.id.calendar1);
         FloatingActionButton btnPlus =(FloatingActionButton)findViewById(R.id.imageButtonPlus);
+        prova=(Button) findViewById(R.id.buttonProva); // da cancellare
 
-       ;
+
 
         btnPlus.setOnClickListener(this);
-
+        prova.setOnClickListener(this);//da cancellare
 
         calendar.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
@@ -51,15 +54,15 @@ public class Calendar extends AppCompatActivity implements View.OnClickListener{
                 anno = year;
 
 
-                Toast.makeText(getApplicationContext(), "Hai selezionato la data " + giorno + "/" + mese + "/" + anno, Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Hai selezionato la data " + dayOfMonth + "/" + (month+1) + "/" + year, Toast.LENGTH_SHORT).show();
 
             }
 
 
         });
 
-        Toast.makeText(getApplicationContext(),"sono qua",Toast.LENGTH_LONG);
-        receptionExam();
+
+        //receptionExam();
 
 
     }
@@ -80,26 +83,41 @@ public class Calendar extends AppCompatActivity implements View.OnClickListener{
                 myDialog.setArguments(bundleDate);
                 i=0;
 
-                //myDialog.setArguments(bundleMonth);
-                //myDialog.setArguments(bundleYear);
+
                 myDialog.show(this.getFragmentManager(), "INSERT");
 
                 break;
+            case R.id.buttonProva:  // da cancellare
+                Intent i=getIntent();
+                nameExam=i.getStringExtra("esame");
+                ora=i.getStringExtra("ora");
+                minuto=i.getStringExtra("minuto");
+                giornoRicevuto=i.getStringExtra("giorno");
+                meseRicevuto=i.getStringExtra("mese");
+                annoRicevuto=i.getStringExtra("anno");
+                Toast.makeText(getApplicationContext(),"ESAME:"+nameExam+" GIORNO "+giornoRicevuto+" "+meseRicevuto+" "+annoRicevuto+"  ORA "+ora+" : "+minuto,Toast.LENGTH_LONG).show();
+
+                break;
+
         }
+
+
     }
 
 
-    public String receptionExam(){ //NOME DEL ESAME
+   /*public String receptionExam(){ //NOME DEL ESAME
 
 
         Intent i=getIntent();
         nameExam=i.getStringExtra("esame");
+        ora=i.getIntExtra("ora");
+        minuto=i.getIntExtra("minuto");
         Log.e("ESAME:",nameExam);
         Toast.makeText(getApplicationContext(),"ESAME:"+nameExam,Toast.LENGTH_LONG);
 
 
         return nameExam;
-    }
+    }*/
 
 
 }

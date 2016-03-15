@@ -35,5 +35,13 @@
         android:layout_alignRight="@+id/calendar1"
         android:layout_alignEnd="@+id/calendar1" />
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New Button"
+        android:id="@+id/buttonProva"
+        android:layout_above="@+id/imageButtonPlus"
+        android:layout_centerHorizontal="true" />
+
 
 </RelativeLayout>
