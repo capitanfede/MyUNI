@@ -1,10 +1,6 @@
 package com.example.federico.myuni;
 
 
-/*
-SALVARE TUTTI I DATI INSERITI NEL DIALOG NEL DATABASE COSI POI NEL CALENDAR.JAVA SI VANNO
-A PRENDERE I DATI DAL DATABASE E SCRITTI NEL FRAGMENT.
-*/
 
 
 
@@ -34,8 +30,9 @@ public class Dialog1 extends DialogFragment {
     TextView txtDate;
     TextView txtHour;
     Button btnSalva;
-    Intent intentCalendar;
+    Intent intentCalendar,intentCalendar2;
     TimePicker time;
+    Button btnAnnulla;
 
     public  String esame;
     public  int day,month,year;
@@ -52,15 +49,17 @@ public class Dialog1 extends DialogFragment {
         txtDate= (TextView) view.findViewById(R.id.dateText);
         txtHour=(TextView) view.findViewById(R.id.hourText);
         intentCalendar=new Intent(getActivity(), Calendar.class);
+        intentCalendar2=new Intent(getActivity(), Calendar.class);
         txtInsertDate=(TextView) view.findViewById(R.id.insertDateText);
         btnSalva=(Button) view.findViewById(R.id.saveButton);
         time=(TimePicker) view.findViewById(R.id.timePicker);
-
+        btnAnnulla=(Button) view.findViewById(R.id.buttonAnnulla);
 
         Bundle bundle =getArguments();
         day = bundle.getInt("data");
         month = bundle.getInt("month");
         year = bundle.getInt("year");
+
         giorno= String.valueOf(day);
         mese= String.valueOf(month);
         anno= String.valueOf(year);
@@ -75,10 +74,10 @@ public class Dialog1 extends DialogFragment {
             public void onTimeChanged(TimePicker view, int hourOfDay, int minute) {
 
 
-                minuto= String.valueOf(minute);
-                ora=String.valueOf(hourOfDay);
-                intentCalendar.putExtra("minuto",minuto);
-                intentCalendar.putExtra("ora",ora);
+                minuto = String.valueOf(minute);
+                ora = String.valueOf(hourOfDay);
+                intentCalendar.putExtra("minuto", minuto);
+                intentCalendar.putExtra("ora", ora);
 
             }
 
@@ -89,13 +88,28 @@ public class Dialog1 extends DialogFragment {
             @Override
             @TargetApi(23)
             public void onClick(View v) {
+                if((minuto==null)||(ora==null)) {
 
-                insertEvent();
-                startActivity(intentCalendar);
+                    //Toast.makeText(getContext(),"SELEZIONARE L'ORA ",Toast.LENGTH_LONG).show();
+                }
+                if(txtInsertExam==null){
+                    //Toast.makeText(getContext(),"INSERIRE IL NOME D'ESAME",Toast.LENGTH_LONG).show();
+                }
+                else {
+                    insertEvent();
+                    startActivity(intentCalendar);
+                }
 
             }
         });
 
+
+        btnAnnulla.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(intentCalendar2);
+            }
+        });
 
 
 

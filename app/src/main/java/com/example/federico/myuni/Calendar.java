@@ -54,6 +54,8 @@ public class Calendar extends AppCompatActivity implements View.OnClickListener{
                 anno = year;
 
 
+
+
                 Toast.makeText(getApplicationContext(), "Hai selezionato la data " + dayOfMonth + "/" + (month+1) + "/" + year, Toast.LENGTH_SHORT).show();
 
             }
@@ -74,24 +76,34 @@ public class Calendar extends AppCompatActivity implements View.OnClickListener{
 
         switch (v.getId()){
             case R.id.imageButtonPlus:
-                Dialog1 myDialog=new Dialog1();
-                bundleDate= new Bundle();
+                if (giorno==0 ) {
 
-                bundleDate.putInt("data", giorno);
-                bundleDate.putInt("month",mese);
-                bundleDate.putInt("year",anno);
-                myDialog.setArguments(bundleDate);
-                i=0;
+                    Toast.makeText(getApplicationContext(),"SELEZIONARE LA DATA",Toast.LENGTH_LONG).show();
+                }
+                else {
+
+                    Dialog1 myDialog = new Dialog1();
+                    bundleDate = new Bundle();
+                    // invio a dialog1 la data il mese e l anno
+                    bundleDate.putInt("data", giorno);
+                    bundleDate.putInt("month", mese);
+                    bundleDate.putInt("year", anno);
+                    myDialog.setArguments(bundleDate);
+                    i = 0;
 
 
-                myDialog.show(this.getFragmentManager(), "INSERT");
-
+                    myDialog.show(this.getFragmentManager(), "INSERT");
+                }
                 break;
+
             case R.id.buttonProva:  // da cancellare
                 Intent i=getIntent();
                 nameExam=i.getStringExtra("esame");
                 ora=i.getStringExtra("ora");
                 minuto=i.getStringExtra("minuto");
+
+                //Prendi i gironi
+
                 giornoRicevuto=i.getStringExtra("giorno");
                 meseRicevuto=i.getStringExtra("mese");
                 annoRicevuto=i.getStringExtra("anno");
