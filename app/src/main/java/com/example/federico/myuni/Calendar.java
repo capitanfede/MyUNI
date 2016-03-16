@@ -3,6 +3,7 @@ package com.example.federico.myuni;
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.media.Image;
+import android.provider.ContactsContract;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -76,23 +77,40 @@ public class Calendar extends AppCompatActivity implements View.OnClickListener{
 
         switch (v.getId()){
             case R.id.imageButtonPlus:
+                /*Date data=new Date();
+                int day1=data.getDay();
+                Log.e("","ciao0"+day1);
+                int year1=data.getYear();
+                int mese1=data.getMonth();*/
                 if (giorno==0 ) {
 
                     Toast.makeText(getApplicationContext(),"SELEZIONARE LA DATA",Toast.LENGTH_LONG).show();
                 }
+
                 else {
+                    /*if(anno<=year1){
+                        Log.e("","ciao");
+                        if(mese<=mese1){
+                            Log.e("","ciao1");
+                            if(giorno<=day1){
 
-                    Dialog1 myDialog = new Dialog1();
-                    bundleDate = new Bundle();
-                    // invio a dialog1 la data il mese e l anno
-                    bundleDate.putInt("data", giorno);
-                    bundleDate.putInt("month", mese);
-                    bundleDate.putInt("year", anno);
-                    myDialog.setArguments(bundleDate);
-                    i = 0;
+                                Toast.makeText(getApplicationContext(),"NON PUOI INSERIRE UN EVENTO IN QUESTA DATA",Toast.LENGTH_LONG).show();
+                            }
+                        }
 
+                    }*/
+                    //else {
+                        Dialog1 myDialog = new Dialog1();
+                        bundleDate = new Bundle();
+                        // invio a dialog1 la data il mese e l anno
+                        bundleDate.putInt("data", giorno);
+                        bundleDate.putInt("month", mese);
+                        bundleDate.putInt("year", anno);
+                        myDialog.setArguments(bundleDate);
+                        i = 0;
 
-                    myDialog.show(this.getFragmentManager(), "INSERT");
+                        myDialog.show(this.getFragmentManager(), "INSERT");
+                    //}
                 }
                 break;
 

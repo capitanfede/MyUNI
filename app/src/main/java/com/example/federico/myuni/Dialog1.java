@@ -36,7 +36,8 @@ public class Dialog1 extends DialogFragment {
 
     public  String esame;
     public  int day,month,year;
-    public String ora,minuto,giorno,mese,anno;
+    public String ora = "",minuto = "",giorno,mese,anno;
+    public int min3,ora3;
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
@@ -73,11 +74,13 @@ public class Dialog1 extends DialogFragment {
             @Override
             public void onTimeChanged(TimePicker view, int hourOfDay, int minute) {
 
-
-                minuto = String.valueOf(minute);
+                insertHour(hourOfDay);
+                insertMinut(minute);
+                /*minuto = String.valueOf(minute);
                 ora = String.valueOf(hourOfDay);
+
                 intentCalendar.putExtra("minuto", minuto);
-                intentCalendar.putExtra("ora", ora);
+                intentCalendar.putExtra("ora", ora);*/
 
             }
 
@@ -88,12 +91,18 @@ public class Dialog1 extends DialogFragment {
             @Override
             @TargetApi(23)
             public void onClick(View v) {
-                if((minuto==null)||(ora==null)) {
 
-                    //Toast.makeText(getContext(),"SELEZIONARE L'ORA ",Toast.LENGTH_LONG).show();
+                if((minuto.isEmpty())||(ora.isEmpty())) {
+                    min3=time.getCurrentMinute();
+                    ora3=time.getCurrentHour();
+                    insertMinut(min3);
+                    insertHour(ora3);
+
                 }
-                if(txtInsertExam==null){
-                    //Toast.makeText(getContext(),"INSERIRE IL NOME D'ESAME",Toast.LENGTH_LONG).show();
+                else if(txtInsertExam.getText().toString().isEmpty()){
+
+                    Toast.makeText(getActivity(),"inserire nome dell'esame",Toast.LENGTH_LONG).show();
+
                 }
                 else {
                     insertEvent();
@@ -114,10 +123,13 @@ public class Dialog1 extends DialogFragment {
 
 
         AlertDialog.Builder builder=new AlertDialog.Builder(getActivity());
+        builder.setTitle("          NUOVO EVENTO");
         builder.setView(view);
         return builder.create();
 
     }
+
+
 
     public String insertEvent(){
 
@@ -129,21 +141,18 @@ public class Dialog1 extends DialogFragment {
         return nome;
     }
 
-    /*@TargetApi(23)
-    public int hour(){
-        ora=time.getHour();
-        intentCalendar.putExtra("ora",ora);
-        return ora;
-    }*/
-
-   /* @TargetApi(23)
-    public int minut(){
-
-        minuto=time.getMinute();
+    public void insertMinut(int min){
+        //int min=time.getMinute();
+        minuto = String.valueOf(min);
         intentCalendar.putExtra("minuto", minuto);
-        //Toast.makeText(getContext(),"Minuto"+minuto,Toast.LENGTH_LONG).show();
-        return minuto;
-    }*/
+    }
+
+    public void insertHour(int ora2){
+        //int min=time.getMinute();
+        ora = String.valueOf(ora2);
+        intentCalendar.putExtra("ora", ora);
+    }
+
 
 
 
