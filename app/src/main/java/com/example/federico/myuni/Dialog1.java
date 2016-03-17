@@ -30,11 +30,11 @@ public class Dialog1 extends DialogFragment {
     TextView txtDate;
     TextView txtHour;
     Button btnSalva;
-    Intent intentCalendar,intentCalendar2;
+    Intent intentCalendar,intentCalendar2; // il primo va nel calendar passondo dei dati il secondo ci va senza passare dati
     TimePicker time;
     Button btnAnnulla;
 
-    public  String esame;
+
     public  int day,month,year;
     public String ora = "",minuto = "",giorno,mese,anno;
     public int min3,ora3;
@@ -76,11 +76,7 @@ public class Dialog1 extends DialogFragment {
 
                 insertHour(hourOfDay);
                 insertMinut(minute);
-                /*minuto = String.valueOf(minute);
-                ora = String.valueOf(hourOfDay);
 
-                intentCalendar.putExtra("minuto", minuto);
-                intentCalendar.putExtra("ora", ora);*/
 
             }
 
@@ -131,6 +127,8 @@ public class Dialog1 extends DialogFragment {
 
 
 
+
+
     public String insertEvent(){
 
 
@@ -141,14 +139,16 @@ public class Dialog1 extends DialogFragment {
         return nome;
     }
 
+
+
     public void insertMinut(int min){
-        //int min=time.getMinute();
         minuto = String.valueOf(min);
         intentCalendar.putExtra("minuto", minuto);
     }
 
+
+
     public void insertHour(int ora2){
-        //int min=time.getMinute();
         ora = String.valueOf(ora2);
         intentCalendar.putExtra("ora", ora);
     }

@@ -29,7 +29,7 @@ public class Calendar extends AppCompatActivity implements View.OnClickListener{
 
 
     Bundle bundleDate;
-    public Bundle bundleExam;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,7 +65,7 @@ public class Calendar extends AppCompatActivity implements View.OnClickListener{
         });
 
 
-        //receptionExam();
+
 
 
     }
@@ -73,44 +73,28 @@ public class Calendar extends AppCompatActivity implements View.OnClickListener{
     @Override
     public void onClick(View v) {
 
-        //GESTIONE POPUP
+        //GESTIONE Pulsanti
 
         switch (v.getId()){
             case R.id.imageButtonPlus:
-                /*Date data=new Date();
-                int day1=data.getDay();
-                Log.e("","ciao0"+day1);
-                int year1=data.getYear();
-                int mese1=data.getMonth();*/
+
                 if (giorno==0 ) {
 
                     Toast.makeText(getApplicationContext(),"SELEZIONARE LA DATA",Toast.LENGTH_LONG).show();
                 }
 
                 else {
-                    /*if(anno<=year1){
-                        Log.e("","ciao");
-                        if(mese<=mese1){
-                            Log.e("","ciao1");
-                            if(giorno<=day1){
 
-                                Toast.makeText(getApplicationContext(),"NON PUOI INSERIRE UN EVENTO IN QUESTA DATA",Toast.LENGTH_LONG).show();
-                            }
-                        }
+                    Dialog1 myDialog = new Dialog1();
+                    bundleDate = new Bundle();
+                    // invio a dialog1 la data il mese e l anno
+                    bundleDate.putInt("data", giorno);
+                    bundleDate.putInt("month", mese);
+                    bundleDate.putInt("year", anno);
+                    myDialog.setArguments(bundleDate);
+                    i = 0;
+                    myDialog.show(this.getFragmentManager(), "INSERT");
 
-                    }*/
-                    //else {
-                        Dialog1 myDialog = new Dialog1();
-                        bundleDate = new Bundle();
-                        // invio a dialog1 la data il mese e l anno
-                        bundleDate.putInt("data", giorno);
-                        bundleDate.putInt("month", mese);
-                        bundleDate.putInt("year", anno);
-                        myDialog.setArguments(bundleDate);
-                        i = 0;
-
-                        myDialog.show(this.getFragmentManager(), "INSERT");
-                    //}
                 }
                 break;
 
@@ -135,19 +119,7 @@ public class Calendar extends AppCompatActivity implements View.OnClickListener{
     }
 
 
-   /*public String receptionExam(){ //NOME DEL ESAME
 
-
-        Intent i=getIntent();
-        nameExam=i.getStringExtra("esame");
-        ora=i.getIntExtra("ora");
-        minuto=i.getIntExtra("minuto");
-        Log.e("ESAME:",nameExam);
-        Toast.makeText(getApplicationContext(),"ESAME:"+nameExam,Toast.LENGTH_LONG);
-
-
-        return nameExam;
-    }*/
 
 
 }
