@@ -19,7 +19,8 @@
         <activity android:name=".Calendar" />
         <activity android:name=".Homepage" />
         <activity android:name=".Dialog" />
-        <activity android:name=".Setting"></activity>
+        <activity android:name=".Setting" />
+        <activity android:name=".Preference"></activity>
     </application>
 
 </manifest>
