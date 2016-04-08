@@ -32,7 +32,6 @@ public class Homepage extends AppCompatActivity {
         FloatingActionButton btnUser = (FloatingActionButton) findViewById(R.id.imageButton4);
         TextView txtNome= (TextView) findViewById(R.id.textView);
         TextView txtCognome=(TextView) findViewById(R.id.textView2);
-        //ImageButton imageMale=(ImageButton) findViewById(R.id.imageButton3);
 
 
         prefs = getSharedPreferences(MY_PREFERENCES, Context.MODE_PRIVATE);
@@ -47,7 +46,8 @@ public class Homepage extends AppCompatActivity {
             public void onClick(View v) {
 
                 //Bottone orario
-
+                Intent i = new Intent(Homepage.this,Orario.class);
+                startActivity(i);
 
             }
         });
@@ -77,7 +77,6 @@ public class Homepage extends AppCompatActivity {
                 editor.commit();
                 Intent i = new Intent(Homepage.this,FirstRegistration.class);
                 startActivity(i);
-                finish();
 
             }
         });

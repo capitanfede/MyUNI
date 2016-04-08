@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_alignParentTop="true"
+    android:layout_alignParentLeft="true"
+    android:layout_alignParentStart="true"
+    >
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Materia:"
+        android:id="@+id/materia"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="10dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/materiaET"
+        android:layout_alignTop="@+id/materia"
+        android:layout_toRightOf="@+id/materia"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Ora Inizio"
+        android:id="@+id/oraInizio"
+        android:layout_alignBottom="@+id/tpInizio"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="89dp" />
+
+    <TimePicker
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tpInizio"
+        android:layout_below="@+id/materiaET"
+        android:layout_alignLeft="@+id/materiaET"
+        android:layout_alignStart="@+id/materiaET" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Ora Fine"
+        android:id="@+id/orarioFine"
+        android:layout_below="@+id/oraInizio"
+        android:layout_toLeftOf="@+id/tpFine"
+        android:layout_toStartOf="@+id/tpFine"
+        android:layout_marginTop="90dp" />
+
+    <TimePicker
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tpFine"
+        android:layout_below="@+id/tpInizio"
+        android:layout_alignRight="@+id/tpInizio"
+        android:layout_alignEnd="@+id/tpInizio"
+        android:layout_toRightOf="@+id/oraInizio"
+        android:layout_toEndOf="@+id/oraInizio" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/okButton"
+        android:text="OK"
+        android:layout_below="@+id/tpFine"
+        />
+</RelativeLayout>

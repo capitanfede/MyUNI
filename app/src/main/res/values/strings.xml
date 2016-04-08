@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">MyUni</string>
+    <string name="lunedi">Lun</string>
+    <string name="martedi">Mar</string>
+    <string name="mercoledi">Mer</string>
+    <string name="giovedi">Gio</string>
+    <string name="venerdi">Ven</string>
+    <string name="sabato">Sab</string>
+
+<!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_dialog_orario">DialogOrario</string>
+
 </resources>
